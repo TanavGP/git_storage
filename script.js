@@ -20,7 +20,7 @@ function saveString() {
     fetch('https://api.github.com/repos/TanavGP/git_storage/contents/user_string.txt', {
       method: 'PUT',
       headers: {
-        'Authorization': 'Bearer ${process.env.ACCESS_TOKEN}',
+        'Authorization': `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
