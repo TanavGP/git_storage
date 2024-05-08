@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 function saveString() {
     // Get the user input
     const userInput = document.getElementById('userInput').value;
@@ -11,12 +13,14 @@ function saveString() {
     // Create a new FormData object
     const formData = new FormData();
     formData.append('file', file);
+
+    const accessToken = process.env.ACCESS_TOKEN;
   
     // Send a POST request to GitHub API to create a new commit
     fetch('https://api.github.com/repos/TanavGP/git_storage/contents/user_string.txt', {
       method: 'PUT',
       headers: {
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer ${process.env.ACCESS_TOKEN}',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
